@@ -14,8 +14,12 @@ export class BusquedaComponent{
   constructor(private GifsService:GifsService){}
   
   buscar( ){
+
     const valor = this.txtBuscar.nativeElement.value;
-    this.GifsService.buscarGifs(valor)
+    if(valor.trim().length === 0){
+      return
+    }
+    this.GifsService.buscarGifs(valor);
     this.txtBuscar.nativeElement.value = '';
   }
 
